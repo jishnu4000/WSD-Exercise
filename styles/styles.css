@@ -4,31 +4,35 @@ body{
   padding: 0px;
 }
 
-header{
+nav {
+  color: white;
+  background-color: #A6B1E1;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 30px 10%; 
+  padding: 10px 20px;
 }
 
-.navbar{
-  list-style-type: none;
-  background-color: #A6B1E1;
-  padding: 10px;
-  margin: 0px;
+ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
-.navbar li{
+
+ul li {
+  margin-right: 20px;
+}
+
+ul li a {
   color: white;
   text-decoration: none;
-  padding: 0px 20px;
-  display: inline-block;
-  text-align: center;
+  transition: color 0.3s;
 }
 
-.navbar a:hover{
-  background-color: #7b83a8;
+ul li a:hover {
+  color: #7b83a8;
 }
-
 
 .title {
   color: #424874;
