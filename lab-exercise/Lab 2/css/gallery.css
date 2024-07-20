@@ -1,0 +1,40 @@
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 1rem;
+  grid-auto-flow: dense;
+}
+.gallery-item {
+  display: flex;
+  flex-flow: column;
+  border:  1px solid black;
+  border-radius: 1em;
+  margin: 0.5em;
+  padding: 2em;
+}
+.gallery-item > h1 {
+  margin: 1rem 1rem 0;
+}
+.gallery-item > p {
+  margin: 0.25em 1rem 1rem;
+}
+.gallery-item > img {
+  order: -1;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.gallery-item > button {
+  margin-top: auto; 
+  background: black;
+  color: white;
+  padding: 0.2rem;
+  border: none;
+  border-radius: 1rem;
+  font-size: 1.2rem;
+}
+
+.gallery-item > button:hover {
+  background: gray;
+  transition: background 0.3s;
+}
