@@ -7,31 +7,28 @@
     justify-content: space-around;
     flex-direction: row;
     gap: 0.5em;
-    height: 100vh;
   }
   aside {
-    border: 2px solid black;
     border-radius: 5%;
     height: 50%;
     width: 75%;
+    margin: 0.5em;
   }
-  article {
-    grid-area: "content";
-  }
-  aside > img {
-    order: -1;
+  aside > img, video {
     height: 100%;
     width: 100%;
     object-fit: cover;
     border-radius: 5%;
   }
   article {
+    grid-area: "content";
     padding: 1em;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     background: rgb(219, 219, 219);
+    width: 100%;
   }
 }
 
@@ -39,24 +36,22 @@
   main {
     display: grid;
     grid-template-areas: 
+          "picture" "content"
           "picture" "content";
     grid-template-columns: 2fr 1fr;
-    grid-template-rows: 100vh;
   }
   aside {
     grid-area: "picture";
     border-right: 2px solid black;
+    border-bottom: 2px solid black;
   }
-  article {
-    grid-area: "content";
-  }
-  aside > img {
-    order: -1;
+  aside > img, video {
     height: 100%;
     width: 100%;
     object-fit: cover;
   }
   article {
+    grid-area: "content";
     padding: 1em;
     display: flex;
     flex-direction: column;
