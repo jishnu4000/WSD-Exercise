@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+  <meta charset="utf-8">
+  <title>Directions to Bethany's Pie Shop!</title>
+  <link rel="stylesheet" type="text/css" href="styles/site.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+  crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+   integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+   crossorigin=""></script>
+  <style>
+    #map { height: 500px; }
+  </style>
+</head>
+
+<body>
+  <header id="mainheader">
+    <nav>
+      <ul>
+        <li><img src="images/cake.svg" height="55" /></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">All pies</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Map</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="container">
+    <aside id="leftmenu">
+      <a href="index.html"><img src="images/bethanylogo.png" /></a>
+
+      <header>
+        <h4 style="text-align: center;">Browse our pies</h4>
+      </header>
+      <ul>
+        <li><a href="#">All pies</a></li>
+        <li><a href="#">Cheese cakes</a></li>
+        <li><a href="#">Fruit pies</a></li>
+        <li><a href="#">Seasonal pies</a></li>
+        <li><a href="#promos">Promotions</a></li>
+        <li><a href="#">Map</a></li>
+      </ul>
+
+      <input type="search" class="searchbox" placeholder="Search our store" />
+    </aside>
+    <main id="main">
+      <div id="map"></div>
+    </main>
+
+    <footer>
+      <p>Our address is <address>Bethany's Pie Shop - 117 Franklin Rd, Brentwood, TN 37027</address>
+      </p>
+      <p><small>&copy; 2020 Bethany's Pie Shop - All rights reserved</small></p>
+      <p>Contact us via <a href="mailto:info@bethanyspieshop.com">email</a></p>
+    </footer>
+  </div>
+  <script>
+    if('geolocation' in navigator) {
+      navigator.geolocation.getCurrentPosition(pos => {
+        // create a map with our geographical coordinates
+        var map = L.map('map').setView([pos.coords.latitude, pos.coords.longitude], 13);
+
+        // add a tile layer to add to our map
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+        
+        // add marker of our location
+        L.marker([pos.coords.latitude, pos.coords.longitude]).addTo(map)
+            .bindPopup('You are here')
+            .openPopup();
+      }, error => {
+
+      })
+    }
+  </script>
+</body>
+
+</html>
